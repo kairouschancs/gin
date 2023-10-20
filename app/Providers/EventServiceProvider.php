@@ -27,7 +27,19 @@ class EventServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
-            //staff role
+            //Guest role
+            if (auth()->user()->role_id == 0){
+                $event->menu->remove('g_Dashboard_admin_only');
+                $event->menu->remove('ToDo_admin_only');
+                $event->menu->remove('My Tool_admin_only');
+                $event->menu->remove('store_management_admin_only');
+                $event->menu->remove('g_store_operation_admin_only');
+                $event->menu->remove('g_budget_planning_performance_admin_only');
+                $event->menu->remove('g_document_management_admin_only');
+                $event->menu->remove('g_human_management_admin_only');
+                $event->menu->remove('system_settings_admin_only');
+                $event->menu->remove('profile_admin_only');
+            }
             if (auth()->user()->role_id == 1){
                 $event->menu->remove('ToDo_admin_only');
                 $event->menu->remove('My Tool_admin_only');
