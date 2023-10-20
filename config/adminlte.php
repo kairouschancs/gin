@@ -293,7 +293,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
     */
-/*
+
     'menu' => [
         // Navbar items:
         [
@@ -629,7 +629,7 @@ return [
                 [
                     'key'        => 'users_information_admin_only',
                     'text' => 'users_information',
-                    'route'  => 'users.index',
+                    //'route'  => 'users.index',
 					//'icon_color' => 'orange',
                     //'url'  => 'roles',
                     'active' => ['user/*'],
