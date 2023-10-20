@@ -629,10 +629,19 @@ return [
                 [
                     'key'        => 'users_information_admin_only',
                     'text' => 'users_information',
-                    //'route'  => 'users.index',
+                    'route'  => 'users.index',
 					//'icon_color' => 'orange',
                     //'url'  => 'roles',
                     'active' => ['user/*'],
+                ],
+                //権限管理
+                [
+                    'key'        => 'authority_management_admin_only',
+                    'text' => 'authority_management',
+                    'route'  => 'roles.index',
+					//'icon_color' => 'orange',
+                    //'url'  => 'roles',
+                    'active' => ['role/*'],
                 ],
                 //店舗基本情報
                 [
@@ -677,15 +686,6 @@ return [
                     'text' => 'employee_transfer_history',
 					//'icon_color' => 'orange',
                     'url'  => '#',
-                ],
-                //権限管理
-                [
-                    'key'        => 'authority_management_admin_only',
-                    'text' => 'authority_management',
-                    'route'  => 'roles.index',
-					//'icon_color' => 'orange',
-                    //'url'  => 'roles',
-                    'active' => ['role/*'],
                 ],
                 //賃料条件
                 [
