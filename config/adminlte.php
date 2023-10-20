@@ -308,9 +308,10 @@ return [
 
         // Sidebar items:
         [
-            'text' => 'Dashboard',
-            'route'  => 'dashboard',
-            'icon'  => 'fas fa-fw fa-home',
+            'key'        => 'g_Dashboard_admin_only',
+            'text'       => 'Dashboard',
+            'route'      => 'dashboard',
+            'icon'       => 'fas fa-fw fa-home',
         ],
 //-------------------- 追加Menu start------------------------
         //ToDo
@@ -318,14 +319,14 @@ return [
             'key'        => 'ToDo_admin_only',
             'text'       => 'ToDo',
             'url'        => '#',
-            'icon'  => 'fas fa-solid fa-list',
+            'icon'       => 'fas fa-solid fa-list',
             //'icon_color' => 'cyan',
         ],
 		//My Tool
         [
             'key'        => 'My Tool_admin_only',
-            'text'        => 'My Tool',
-            'icon'        => 'fas fa-fw fa-home',
+            'text'       => 'My Tool',
+            'icon'       => 'fas fa-fw fa-home',
             //'icon_color' => 'orange',
             'submenu' => [
                 //行動計画
@@ -401,6 +402,7 @@ return [
         ],
 		//店舗Operation（店舗運営）
         [
+            'key'         => 'g_store_operation_admin_only',
             'text'        => 'store_operation',
             'icon'        => 'fas fa-cash-register',
             //'icon_color' => 'green',
@@ -468,6 +470,7 @@ return [
         ],
 		//予算・実績Management（予算計画・実績）
         [
+            'key'         => 'g_budget_planning_performance_admin_only',
             'text'        => 'budget_plan_result',
             'icon'        => 'fas fa-money-check',
             //'icon_color' => 'yellow',
@@ -510,6 +513,7 @@ return [
         ],
 		//Document Management（本社提出書類）
         [
+            'key'         => 'g_document_management_admin_only',
             'text'        => 'document_management',
             'icon'        => 'fas fa-paste',
             //'icon_color' => 'red',
@@ -577,6 +581,7 @@ return [
         ],
 		//Human Management（人材育成計画）
         [
+            'key'          => 'g_human_management_admin_only',
             'text'         => 'human_management',
             'icon'         => 'fas fa-users-cog',
             //'icon_color' => 'purple',
@@ -611,8 +616,9 @@ return [
         ],
         //-------------------- プロフィール------------------------
 
-        ['header' => 'account_settings'],
+        [    'header'  => 'account_settings'],
         [
+            'key'  => 'profile_admin_only',
             'text' => 'profile',
             'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
