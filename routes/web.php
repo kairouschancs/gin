@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 //role management
 use App\Http\Controllers\RoleController;
+//user management
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +63,23 @@ Route::get('/roles/{role}/edit', [RoleController::class, 'edit'])->name('roles.e
 Route::patch('/roles/{role}', [RoleController::class, 'update'])->name('roles.update');
 Route::delete('/roles/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
 */
+
+/*
+|----------------------------------------------------------------
+| User Management
+|----------------------------------------------------------------
+*/
+//Route::resource('/users', UserController::class);
+//showメソッドを使用しないのでshowを除く
+Route::resource('users', UserController::class, ['except' => ['show']]);
+
+//下記のCommand処理が含まれる
+/*Route::get('users', [UserController::class, 'index'])->name('users.index');
+Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('users', [UserController::class, 'store'])->name('users.store');
+Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
+Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::patch('users/{user}', [UserController::class, 'update'])->name('users.update');
+Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+*/
+

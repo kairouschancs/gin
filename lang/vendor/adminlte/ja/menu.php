@@ -116,4 +116,5 @@ return [
         'database_link'                 => 'Database Link',
         'system_settings'               => 'システム設定',
         'shop_information'              => '店舗基本情報',
+        'users_information'             => '登録ユーザー管理',
 ];

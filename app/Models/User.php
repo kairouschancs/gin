@@ -20,11 +20,11 @@ class User extends Authenticatable
     protected $fillable = [
         //追加
         'employee_id',
+        'employee_code',
         'name',
         'email',
         'password',
         'role_id',
-        'role',
         'holiday_calendar_type',
         'retirement',
     ];
@@ -48,4 +48,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //users_management
+    public function role()
+    {
+        return $this->belongsTo(Roles\Role::class);
+    }
 }
