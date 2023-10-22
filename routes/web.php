@@ -52,7 +52,7 @@ Route::get('/dashboard', function () {
 */
 //Route::resource('/roles', RoleController::class);
 //showメソッドを使用しないのでshowを除く
-Route::resource('/roles', RoleController::class, ['except' => ['show']]);
+Route::resource('/roles', RoleController::class, ['except' => ['show']])->middleware('auth');
 /*
 //下記のCommand処理が含まれる
 Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
@@ -71,7 +71,7 @@ Route::delete('/roles/{role}', [RoleController::class, 'destroy'])->name('roles.
 */
 //Route::resource('/users', UserController::class);
 //showメソッドを使用しないのでshowを除く
-Route::resource('users', UserController::class, ['except' => ['show']]);
+Route::resource('users', UserController::class, ['except' => ['show']])->middleware('auth');
 
 //下記のCommand処理が含まれる
 /*Route::get('users', [UserController::class, 'index'])->name('users.index');
