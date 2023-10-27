@@ -634,11 +634,20 @@ return [
                 //登録ユーザー管理
                 [
                     'key'        => 'users_information_admin_only',
-                    'text' => 'users_information',
-                    'route'  => 'users.index',
+                    'text'       => 'users_information',
+                    'route'      => 'users.index',
 					//'icon_color' => 'orange',
                     //'url'  => 'roles',
-                    'active' => ['user/*'],
+                    'active'     => ['user/*'],
+                ],
+                //社員一覧
+                [
+                    'key'        => 'employee_list_admin_only',
+                    'text'       => 'employee_list',
+                    'route'      => 'employees.index',
+					//'icon_color' => 'orange',
+                    //'url'  => '#',
+                    'active'     => ['em/*'],
                 ],
                 //権限管理
                 [
@@ -658,13 +667,6 @@ return [
                 //PA一覧
                 [
                     'text' => 'pa_list',
-					//'icon_color' => 'orange',
-                    'url'  => '#',
-                ],
-                //社員一覧
-                [
-                    'key'        => 'employee_list_admin_only',
-                    'text' => 'employee_list',
 					//'icon_color' => 'orange',
                     'url'  => '#',
                 ],

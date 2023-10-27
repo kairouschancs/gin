@@ -8,7 +8,7 @@ use App\Models\Roles\Role;
 use App\Http\Requests\UserRequest;
 use DB;
 
-class UserController extends Controller
+class EmployeeController extends Controller
 {
     public function __construct()
     {
@@ -20,15 +20,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('role')->get();
+        $employees = User::whereHas('Role', function($employees){
+            $employees->where('role_id','>=', 2)->where('role_id','<=', 19);
+        })->get();
 
         // ページネーション
-        $users = User::paginate(10);
+        //$employees = Employee::paginate(10);
 
-        return view(
-            'users.index',
-            ['users' => $users]
-        );
+        return view('employees.em_index', compact('employees'));
     }
 
     /**
@@ -39,7 +38,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = $this->role->get();
-        return view('users.create', compact('roles'));
+        return view('employees.em_create', compact('roles'));
     }
 
     /**
@@ -48,21 +47,21 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $user = new user;
+        $employee = new user;
     
         // fillを使用する場合は、必ずモデルのfillableを指定する
-        $user->fill($request->all())->save();
+        $employee->fill($request->all())->save();
     
         // 一覧へ戻り完了メッセージを表示
-        return redirect()->route('users.index')->with('message', '登録しました');
+        return redirect()->route('employees.index')->with('message', '登録しました');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    /*public function show(string $id)
     {
         //
     }
@@ -74,11 +73,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(string $id)
     {
-        $user = User::find($id);
+        $employee = User::find($id);
         $roles = $this->role->get();
-        return view('users.edit', compact('user','roles'));
+        return view('employees.em_edit', compact('employee','roles'));
     }
 
     /**
@@ -90,11 +89,11 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $users = User::find($id);
-        $users->fill($request->all())->save();
+        $employees = User::find($id);
+        $employees->fill($request->all())->save();
     
         // 一覧へ戻り完了メッセージを表示
-        return redirect()->route('users.index')->with('message', '編集しました');
+        return redirect()->route('employees.index')->with('message', '編集しました');
     }
 
     /**
@@ -104,6 +103,6 @@ class UserController extends Controller
     {
         User::where('id', $id)->delete();
         // 完了メッセージを表示
-        return redirect()->route('users.index')->with('message', '削除しました');
+        return redirect()->route('employees.index')->with('message', '削除しました');
     }
 }
