@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 //user management
 use App\Http\Controllers\UserController;
+//employee management
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,3 +85,16 @@ Route::patch('users/{user}', [UserController::class, 'update'])->name('users.upd
 Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 */
 
+/*
+|----------------------------------------------------------------
+| Employee Management
+|----------------------------------------------------------------
+*/
+Route::get('em', [EmployeeController::class, 'index'])->name('employees.index')->middleware('auth');
+Route::get('em/create', [EmployeeController::class, 'create'])->name('employees.em_create')->middleware('auth');
+Route::post('em', [EmployeeController::class, 'store'])->name('employees.em_store')->middleware('auth');
+//Route::get('em/{user}', [EmployeeController::class, 'show'])->name('employees.show')->middleware('auth');
+Route::get('em/{user}/edit', [EmployeeController::class, 'edit'])->name('employees.em_edit')->middleware('auth');
+Route::patch('em/{user}', [EmployeeController::class, 'update'])->name('employees.em_update')->middleware('auth');
+Route::get('/delete/{id}', 'App\Http\Controllers\EmployeeController@delete')->name('em_delete');
+Route::delete('em/{user}', [EmployeeController::class, 'destroy'])->name('employees.em_destroy')->middleware('auth');
