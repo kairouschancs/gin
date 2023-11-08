@@ -105,16 +105,30 @@ return [
         'employee_status_recognition'   => '社員現状認識',
         'pa_status_recognition'         => 'PA現状認識',
         //Setting
+        'system_settings'               => 'システム設定',
         'pa_list'                       => 'PA一覧',
+        'shift_position_list'           => 'シフトポジション一覧',
+        'shop_information'              => '店舗基本情報',
+
+        //Admin Setting
+        'Admin_Setting'                 => '管理者設定',
+        'registered_user_management'    => '登録ユーザー管理',
+        'users_information'             => '登録ユーザー一覧',
         'employee_list'                 => '社員一覧',
+        'authority_management'          => '権限管理',
+        'employee_transfer_history'     => '社員異動履歴',
+
+        'list_of_rent_conditions'       => '賃料条件',
+        'list_of_registered_stores'     => '登録店舗管理',
+        'list_of_registered_business_formats' => '登録業態一覧',
+        'list_of_registered_buildings'        => '登録建物一覧',
+        'theoretical_working_hours_calculation_coefficient' => '理論労働時間算出係数',
+        'list_of_weather_information_observation_points'    => '気象情報観測地点',
+
+        //Master Setting
+        'database_link'                 => 'Database Link',
         'holiday_calendar'              => '休日カレンダー',
         'employee_holiday_calendar'     => '社員休日カレンダー',
-        'shift_position_list'           => 'シフトポジション一覧',
-        'employee_transfer_history'     => '社員異動履歴',
-        'authority_management'          => '権限管理',
-        'rent_conditions'               => '賃料条件',
-        'database_link'                 => 'Database Link',
-        'system_settings'               => 'システム設定',
-        'shop_information'              => '店舗基本情報',
-        'users_information'             => '登録ユーザー管理',
-];
+        'master_setting'                => 'Master管理',
+
+    ];

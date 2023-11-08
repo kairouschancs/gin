@@ -631,33 +631,6 @@ return [
             'url'  => '#',
             'icon' => 'fas fa-fw fa-cogs',
             'submenu' => [
-                //登録ユーザー管理
-                [
-                    'key'        => 'users_information_admin_only',
-                    'text'       => 'users_information',
-                    'route'      => 'users.index',
-					//'icon_color' => 'orange',
-                    //'url'  => 'roles',
-                    'active'     => ['user/*'],
-                ],
-                //社員一覧
-                [
-                    'key'        => 'employee_list_admin_only',
-                    'text'       => 'employee_list',
-                    'route'      => 'employees.index',
-					//'icon_color' => 'orange',
-                    //'url'  => '#',
-                    'active'     => ['em/*'],
-                ],
-                //権限管理
-                [
-                    'key'        => 'authority_management_admin_only',
-                    'text' => 'authority_management',
-                    'route'  => 'roles.index',
-					//'icon_color' => 'orange',
-                    //'url'  => 'roles',
-                    'active' => ['role/*'],
-                ],
                 //店舗基本情報
                 [
                     'text' => 'shop_information',
@@ -670,48 +643,148 @@ return [
 					//'icon_color' => 'orange',
                     'url'  => '#',
                 ],
-                //休日カレンダー
-                [
-                    'text' => 'holiday_calendar',
-					//'icon_color' => 'orange',
-                    'url'  => '#',
-                ],
-                //社員休日カレンダー
-                [
-                    'text' => 'employee_holiday_calendar',
-					//'icon_color' => 'orange',
-                    'url'  => '#',
-                ],
                 //シフトポジション一覧
                 [
                     'text' => 'shift_position_list',
 					//'icon_color' => 'orange',
                     'url'  => '#',
                 ],
-                //社員異動履歴
-                [
-                    'key'        => 'employee_transfer_history_admin_only',
-                    'text' => 'employee_transfer_history',
-					//'icon_color' => 'orange',
-                    'url'  => '#',
-                ],
-                //賃料条件
-                [
-                    'key'        => 'rent_conditions_admin_only',
-                    'text' => 'rent_conditions',
-					//'icon_color' => 'orange',
-                    'url'  => '#',
-                ],
-                //Database Link
-                [
-                    'key'        => 'database_link_admin_only',
-                    'text' => 'database_link',
-					//'icon_color' => 'orange',
-                    'url'  => '#',
-                ],
+            ],
         ],
+                //-- Admin_Menu Start ----------------------------------
+        [
+            'key'  => 'Admin_Menu_admin_only',
+            'text'    => 'Admin_Menu',
+            'icon'    => 'fas fa-key',
+            'submenu' => [
+                [
+                    //GM/Sr
+                    'text'    => 'GM/Srmgr_Menu',
+                    'icon'    => 'fas fa-users-cog',
+					'icon_color' => 'red',
+                    //ユーザー管理
+                    'submenu' => [
+                        [
+                            'text'    => 'registered_user_management',
+                            'icon'    => 'fas fa-id-card',
+                            'url'     => '#',
+                            'icon_color' => 'orange',
+                            'submenu' => [
+                                //登録ユーザー 一覧
+                                [
+                                    'text'       => 'users_information',
+                                    'route'      => 'users.index',
+                                    'icon_color' => 'orange',
+                                    'active'     => ['user/*'],
+                                ],
+                                //社員一覧
+                                [
+                                    'text'       => 'employee_list',
+                                    'route'      => 'employees.index',
+                                    'icon_color' => 'orange',
+                                    'active'     => ['em/*'],
+                                ],
+                                //権限管理
+                                [
+                                    'text' => 'authority_management',
+                                    'route'  => 'roles.index',
+                                    'icon_color' => 'orange',
+                                    'active' => ['role/*'],
+                                ],
+                                //社員移動履歴
+                                [
+                                    'text' => 'employee_transfer_history',
+                                    'icon_color' => 'orange',
+                                    'url'  => '#',
+                                ],
+                            ],
+                        ],
+            //----------------------------------------------
+                    //店舗管理
+                        [
+                            'text'    => 'list_of_registered_stores',
+                            'icon'    => 'fas fa-store-alt',
+                            'icon_color' => 'cyan',
+                            'submenu' => [
+                                //店舗 一覧
+                                [
+                                    'text'       => 'list_of_registered_stores',
+                                    //'route'      => '',
+                                    'icon_color' => 'cyan',
+                                    'active'     => ['user/*'],
+                                ],
+                                //業態一覧
+                                [
+                                    'text'       => 'list_of_registered_business_formats',
+                                    'route'      => 'shop_types.index',
+                                    'icon_color' => 'cyan',
+                                    'active'     => ['shop_types/*'],
+                                ],
+                                //建物一覧
+                                [
+                                    'text' => 'list_of_registered_buildings',
+                                    //'route'  => '#',
+                                    'icon_color' => 'cyan',
+                                    //'active' => ['#'],
+                                ],
+                                //理論労働時間算出係数
+                                [
+                                    'text' => 'theoretical_working_hours_calculation_coefficient',
+                                    'route'  => 'working_hours.index',
+                                    'icon_color' => 'cyan',
+                                    'active' => ['working_hours/*'],
+                                ],
+                                //賃料条件一覧
+                                [
+                                    'text' => 'list_of_rent_conditions',
+                                    //'route'  => '#',
+                                    'icon_color' => 'cyan',
+                                    //'active' => ['#'],
+                                ],
+                                //気象情報観測地点 一覧
+                                [
+                                    'text' => 'list_of_weather_information_observation_points',
+                                    //'route'  => 'roles.index',
+                                    'icon_color' => 'cyan',
+                                    //'active' => ['#'],
+                                ],
+                            ],
+                        ],
+            //----------------------------------------------
+                    //Master管理
+                        [
+                            'text'    => 'master_setting',
+                            'icon'    => 'fas fa-tools',
+                            'icon_color' => 'yellow',
+                            'submenu' => [
+                                //社員休日カレンダー
+                                [
+                                    'text' => 'employee_holiday_calendar',
+                                    'icon_color' => 'yellow',
+                                ],
+                                //休日カレンダー
+                                [
+                                    'text' => 'holiday_calendar',
+                                    'icon_color' => 'yellow',
+                                ],
+                                //Database Link
+                                [
+                                    'key'        => 'database_link_admin_only',
+                                    'text' => 'database_link',
+                                    'icon_color' => 'yellow',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+                //-- Admin_Menu Start ----------------------------------
 
-    ]],
+
+
+
 
     /*
     |--------------------------------------------------------------------------
