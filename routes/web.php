@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//role management
-use App\Http\Controllers\RoleController;
-//user management
-use App\Http\Controllers\UserController;
-//employee management
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\RoleController;//role management
+use App\Http\Controllers\UserController;//user management
+use App\Http\Controllers\EmployeeController;//employee management
+use App\Http\Controllers\ShopTypeController;//shop_type management:業態登録
+use App\Http\Controllers\WorkingHourController;//working_hour management:理論労働時間算出係数登録
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -75,16 +76,6 @@ Route::delete('/roles/{role}', [RoleController::class, 'destroy'])->name('roles.
 //showメソッドを使用しないのでshowを除く
 Route::resource('users', UserController::class, ['except' => ['show']])->middleware('auth');
 
-//下記のCommand処理が含まれる
-/*Route::get('users', [UserController::class, 'index'])->name('users.index');
-Route::get('users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('users', [UserController::class, 'store'])->name('users.store');
-Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
-Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::patch('users/{user}', [UserController::class, 'update'])->name('users.update');
-Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-*/
-
 /*
 |----------------------------------------------------------------
 | Employee Management
@@ -98,3 +89,23 @@ Route::get('em/{user}/edit', [EmployeeController::class, 'edit'])->name('employe
 Route::patch('em/{user}', [EmployeeController::class, 'update'])->name('employees.em_update')->middleware('auth');
 Route::get('/delete/{id}', 'App\Http\Controllers\EmployeeController@delete')->name('em_delete');
 Route::delete('em/{user}', [EmployeeController::class, 'destroy'])->name('employees.em_destroy')->middleware('auth');
+
+
+
+/*
+|----------------------------------------------------------------
+| Shop Management
+|----------------------------------------------------------------
+*/
+//+++++++++++++++++++++++
+//Shop_types
+//+++++++++++++++++++++++
+//showメソッドを使用しないのでshowを除く
+Route::resource('shop_types', ShopTypeController::class, ['except' => ['show']])->middleware('auth');
+
+//+++++++++++++++++++++++
+//working_hours
+//+++++++++++++++++++++++
+//showメソッドを使用しないのでshowを除く
+Route::resource('working_hours', WorkingHourController::class, ['except' => ['show']])->middleware('auth');
+

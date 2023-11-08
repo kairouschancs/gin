@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+{{-- ファビコン --}}
+<link rel="shortcut icon" href="{{ asset('img/Works_A1.png') }}">
+
 <head>
 
     {{-- Base Meta Tags --}}

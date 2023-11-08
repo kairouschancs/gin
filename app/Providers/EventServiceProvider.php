@@ -39,6 +39,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('g_human_management_admin_only');
                 $event->menu->remove('system_settings_admin_only');
                 $event->menu->remove('profile_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
             if (auth()->user()->role_id == 1){
                 $event->menu->remove('ToDo_admin_only');
@@ -60,6 +61,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('employee_development_admin_only');
                 $event->menu->remove('employee_status_recognition_admin_only');
                 $event->menu->remove('system_settings_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
             //SS(社員) role
             if (auth()->user()->role_id == 2){
@@ -69,6 +71,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('database_link_admin_only');
                 $event->menu->remove('employee_transfer_history_admin_only');
                 $event->menu->remove('users_information_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
             //Ast(副店長) role
             if (auth()->user()->role_id == 3){
@@ -78,6 +81,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('database_link_admin_only');
                 $event->menu->remove('employee_transfer_history_admin_only');
                 $event->menu->remove('users_information_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
             //St(店長) role
             if (auth()->user()->role_id == 4){
@@ -87,6 +91,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('database_link_admin_only');
                 $event->menu->remove('employee_transfer_history_admin_only');
                 $event->menu->remove('users_information_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
             //Mgr(マネージャー) role
             if (auth()->user()->role_id == 5){
@@ -95,6 +100,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('rent_conditions_admin_only');
                 $event->menu->remove('database_link_admin_only');
                 $event->menu->remove('users_information_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
             //Srmgr(シニア・マネージャー) role
             if (auth()->user()->role_id == 6){
@@ -109,6 +115,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('authority_management_admin_only');
                 $event->menu->remove('rent_conditions_admin_only');
                 $event->menu->remove('users_information_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
             //Shop(店舗/営業報告・水光熱あり) role
             if (auth()->user()->role_id == 22){
@@ -117,6 +124,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('authority_management_admin_only');
                 $event->menu->remove('rent_conditions_admin_only');
                 $event->menu->remove('users_information_admin_only');
+                $event->menu->remove('Admin_Menu_admin_only');
             }
         }
     );
