@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', '理論労働時間算出係数登録 一覧')
+@section('title', '建物登録 一覧')
 
 @section('content_header')
     <h1></h1>
@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container">
-    <h3>理論労働時間算出係数登録 一覧</h3>
+    <h3>建物登録 一覧</h3>
     {{-- 完了メッセージ --}}
     @if (session('message'))
         <div class="alert alert-info alert-dismissible">
@@ -20,13 +20,14 @@
     @endif
 
     {{-- 新規登録画面へ --}}
-    <button type="button" class="btn btn-secondary mb-2" onclick="location.href='{{ route('working_hours.create') }}'">新規登録</button>
+    <button type="button" class="btn btn-secondary mb-2" onclick="location.href='{{ route('shop_halls.create') }}'">新規登録</button>
     <table class="table table-striped">
         @csrf
         <thead>
             <tr class="bg-secondary text-light">
-            <th style="width: 60px">業態ID</th>
-            <th style="width: 70px">業態記号</th>
+            <th style="width: 60px">建物ID</th>
+            <th style="width: 80px">建物記号</th>
+            <th style="width: 230px">住所</th>
             <th style="width: 120px">作成日</th>
             <th style="width: 120px">更新日</th>
             <!-- ボタン配置のためのタイトル行-->
@@ -34,20 +35,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($working_hours as $working_hour)
+            @foreach ($shop_halls as $shop_hall)
             {{--@foreach ($users as $user,$role)--}}
                 <tr>
-                    <td>{{ $working_hour->id }}</td>
-                    <td>{{ $working_hour->shop_type_symbol }}</td>
-                    <td>{{ $working_hour->created_at }}</td>
-                    <td>{{ $working_hour->updated_at }}</td>
+                    <td>{{ $shop_hall->id }}</td>
+                    <td>{{ $shop_hall->develop_symbol }}</td>
+                    <td>{{ $shop_hall->develop_address }}</td>
+                    <td>{{ $shop_hall->created_at }}</td>
+                    <td>{{ $shop_hall->updated_at }}</td>
                     <td>
                         <div class="btn-group">
-                            <form action="{{ route('working_hours.destroy', $working_hour->id) }}" method="post">
+                            <form action="{{ route('shop_halls.destroy', $shop_hall->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 {{-- 編集画面に遷移 --}}
-                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='{{ route('working_hours.edit', $working_hour->id) }}'">編集</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="location.href='{{ route('shop_halls.edit', $shop_hall->id) }}'">編集</button>
                                 {{-- 簡易的に確認メッセージを表示 --}}
                                 <button type="submit" class="btn btn-outline-secondary btn-sm" onclick="return confirm('削除してもよろしいですか?');">削除</button>
                             </form>
@@ -58,9 +60,9 @@
         </tbody>
     </table>
         {{-- ページネーション --}}
-        @if ($working_hours->hasPages())
+        @if ($shop_halls->hasPages())
             <div class="table-footer clearfix">
-                {{ $working_hours->links() }}
+                {{ $shop_halls->links() }}
             </div>
         @endif
 </div>

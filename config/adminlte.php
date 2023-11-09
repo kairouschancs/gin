@@ -720,13 +720,6 @@ return [
                                     'icon_color' => 'cyan',
                                     'active'     => ['shop_types/*'],
                                 ],
-                                //建物一覧
-                                [
-                                    'text' => 'list_of_registered_buildings',
-                                    //'route'  => '#',
-                                    'icon_color' => 'cyan',
-                                    //'active' => ['#'],
-                                ],
                                 //理論労働時間算出係数
                                 [
                                     'text' => 'theoretical_working_hours_calculation_coefficient',
@@ -734,17 +727,24 @@ return [
                                     'icon_color' => 'cyan',
                                     'active' => ['working_hours/*'],
                                 ],
-                                //賃料条件一覧
+                                //建物一覧
                                 [
-                                    'text' => 'list_of_rent_conditions',
-                                    //'route'  => '#',
+                                    'text' => 'list_of_registered_buildings',
+                                    'route'  => 'shop_halls.index',
                                     'icon_color' => 'cyan',
-                                    //'active' => ['#'],
+                                    'active' => ['shop_halls/*'],
                                 ],
                                 //気象情報観測地点 一覧
                                 [
                                     'text' => 'list_of_weather_information_observation_points',
-                                    //'route'  => 'roles.index',
+                                    'route'  => 'weather_informations.index',
+                                    'icon_color' => 'cyan',
+                                    'active' => ['weather_informations/*'],
+                                ],
+                                //賃料条件一覧
+                                [
+                                    'text' => 'list_of_rent_conditions',
+                                    //'route'  => '#',
                                     'icon_color' => 'cyan',
                                     //'active' => ['#'],
                                 ],
