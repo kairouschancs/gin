@@ -123,7 +123,7 @@ return [
         'list_of_registered_business_formats' => '登録業態一覧',
         'list_of_registered_buildings'        => '登録建物一覧',
         'theoretical_working_hours_calculation_coefficient' => '理論労働時間算出係数',
-        'list_of_weather_information_observation_points'    => '気象情報観測地点',
+        'list_of_weather_information_observation_points'    => '気象情報観測地一覧',
 
         //Master Setting
         'database_link'                 => 'Database Link',

@@ -6,8 +6,8 @@ use App\Http\Controllers\UserController;//user management
 use App\Http\Controllers\EmployeeController;//employee management
 use App\Http\Controllers\ShopTypeController;//shop_type management:業態登録
 use App\Http\Controllers\WorkingHourController;//working_hour management:理論労働時間算出係数登録
-
-
+use App\Http\Controllers\ShopHallController;//shop_hall management:建物登録
+use App\Http\Controllers\WeatherInformationController;//weather_Information management:気象情報観測地登録
 
 /*
 |--------------------------------------------------------------------------
@@ -108,4 +108,18 @@ Route::resource('shop_types', ShopTypeController::class, ['except' => ['show']])
 //+++++++++++++++++++++++
 //showメソッドを使用しないのでshowを除く
 Route::resource('working_hours', WorkingHourController::class, ['except' => ['show']])->middleware('auth');
+
+//+++++++++++++++++++++++
+//Shop_halls
+//+++++++++++++++++++++++
+//showメソッドを使用しないのでshowを除く
+Route::resource('shop_halls', ShopHallController::class, ['except' => ['show']])->middleware('auth');
+
+//+++++++++++++++++++++++
+//Weather_informations
+//+++++++++++++++++++++++
+//showメソッドを使用しないのでshowを除く
+Route::resource('weather_informations', WeatherInformationController::class, ['except' => ['show']])->middleware('auth');
+
+
 
