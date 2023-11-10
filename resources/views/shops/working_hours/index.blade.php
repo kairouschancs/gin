@@ -26,7 +26,7 @@
         <thead>
             <tr class="bg-secondary text-light">
             <th style="width: 60px">業態ID</th>
-            <th style="width: 70px">業態記号</th>
+            <th style="width: 250px">業態記号</th>
             <th style="width: 120px">作成日</th>
             <th style="width: 120px">更新日</th>
             <!-- ボタン配置のためのタイトル行-->
